@@ -1,4 +1,3 @@
-# rag/ingest.py
 import os
 import re
 import pypdf
@@ -77,3 +76,6 @@ def ingest_documents(raw_dir="data/raw", output="data/processed/chunks.parquet")
     df = pd.DataFrame(all_chunks)
     df.to_parquet(output, index=False)
     print(f"[OK] Guardados {len(df)} chunks en {output}")
+
+if __name__ == "__main__":
+    ingest_documents()
