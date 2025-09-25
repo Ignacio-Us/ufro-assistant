@@ -4,3 +4,4 @@ requests
 sentence-transformers
 tqdm
 pandas
+faiss-cpu

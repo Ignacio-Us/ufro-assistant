@@ -2,7 +2,6 @@ import os
 import re
 import pypdf
 from pathlib import Path
-from sentence_transformers import SentenceTransformer
 import pandas as pd
 
 def extract_text_from_pdf(pdf_path: str) -> list[dict]:
@@ -30,14 +29,9 @@ def extract_text_from_txt(txt_path: str) -> list[dict]:
     }]
 
 def clean_text(text: str) -> str:
-    # Quitar headers/footers repetitivos: ejemplo básico
     text = re.sub(r"Página \d+ de \d+", "", text)
-    # Normalizar saltos
     text = re.sub(r"\n+", "\n", text)
     return text.strip()
-
-# Cargar modelo una vez
-model = SentenceTransformer("all-MiniLM-L6-v2")
 
 def chunk_text(text: str, doc_id: str, title: str, page: int,
                chunk_size=450, overlap=50) -> list[dict]:
