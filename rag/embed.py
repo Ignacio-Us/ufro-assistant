@@ -1,11 +1,10 @@
-# rag/embed.py
-
 import os
 import faiss
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 
 def main():
+    MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
     data_dir = "data"
     parquet_path = os.path.join(data_dir, "processed", "chunks.parquet")
     index_path = os.path.join(data_dir, "index.faiss")
@@ -14,7 +13,16 @@ def main():
         raise FileNotFoundError(f"No se encontró {parquet_path}. Ejecuta primero ingest.py")
 
     print(f"Cargando {parquet_path} ...")
-    df = pd.read_parquet(parquet_path)
+    try:
+        df = pd.read_parquet(parquet_path)
+    except FileNotFoundError:
+        raise RuntimeError(f"[ERROR] No se encontró {parquet_path}. Ejecuta primero ingest.py")
+    except Exception as e:
+        raise RuntimeError(f"[ERROR] Error leyendo {parquet_path}: {e}")
+
+    if df.empty:
+        raise ValueError("[ERROR] El DataFrame de chunks está vacío.")
+
 
     if "text" not in df.columns:
         raise ValueError("El archivo parquet debe contener la columna 'text'.")
@@ -22,7 +30,11 @@ def main():
     texts = df["text"].tolist()
 
     # Modelo de embeddings
-    model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+    
+    try:
+        model = SentenceTransformer(MODEL_NAME)
+    except Exception as e:
+        raise RuntimeError(f"[ERROR] No se pudo cargar el modelo {MODEL_NAME}: {e}")
 
     # Generar embeddings
     embeddings = model.encode(texts, show_progress_bar=True, convert_to_numpy=True)

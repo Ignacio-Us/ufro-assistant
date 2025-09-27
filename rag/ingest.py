@@ -4,11 +4,20 @@ from pathlib import Path
 import pandas as pd
 
 def extract_text_from_pdf(pdf_path: str) -> list[dict]:
-    reader = pypdf.PdfReader(pdf_path)
+    try:
+        reader = pypdf.PdfReader(pdf_path)
+    except Exception as e:
+        print(f"[ERROR] No se pudo leer {pdf_path}: {e}")
+        return []
+
     pages = []
     for i, page in enumerate(reader.pages, start=1):
-        text = page.extract_text() or ""
-        text = clean_text(text)
+        try:
+            text = page.extract_text() or ""
+            text = clean_text(text)
+        except Exception as e:
+            print(f"[WARN] Error procesando página {i} en {pdf_path}: {e}")
+            text = ""
         pages.append({
             "doc_id": Path(pdf_path).stem,
             "title": Path(pdf_path).name,
@@ -16,6 +25,7 @@ def extract_text_from_pdf(pdf_path: str) -> list[dict]:
             "text": text
         })
     return pages
+
 
 def extract_text_from_txt(txt_path: str) -> list[dict]:
     with open(txt_path, "r", encoding="utf-8") as f:

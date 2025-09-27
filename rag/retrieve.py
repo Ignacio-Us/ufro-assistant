@@ -1,6 +1,7 @@
 import faiss
 import numpy as np
 import pandas as pd
+from pathlib import Path
 from sentence_transformers import SentenceTransformer
 from typing import List, Dict
 
@@ -8,7 +9,11 @@ from typing import List, Dict
 class Retriever:
     def __init__(self, index_path: str, chunks_path: str,
                  model_name: str = "all-MiniLM-L6-v2"):
-        self.index = faiss.read_index(index_path)
+        
+        if not Path(index_path).exists():
+            raise FileNotFoundError(f"[ERROR] No se encontró el índice FAISS en {index_path}")
+        else:
+            self.index = faiss.read_index(index_path)
         
         self.df = pd.read_parquet(chunks_path)
         
