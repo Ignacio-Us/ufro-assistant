@@ -19,19 +19,20 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--provider", type=str, default="chatgpt")
     parser.add_argument("--k", type=int, default=3)
-    parser.add_argument("--mode", type=str, default="rag")
     parser.add_argument("query", type=str, help="Pregunta a responder")
     args = parser.parse_args()
 
     provider = get_provider(args.provider)
     retriever = Retriever("data/index.faiss", "data/processed/chunks.parquet")
 
-    if args.mode == "rag":
+    if not args.query.strip():
+        raise ValueError("[ERROR] La query no puede estar vacía")
+
+    try:
         answer = rag_pipeline(args.query, provider, retriever, k=args.k)
-    else:
-        answer = provider.chat([
-            {"role": "system", "content": "Eres un asistente útil."},
-            {"role": "user", "content": args.query}
-        ])
+    except Exception as e:
+        print(f"[ERROR] Falló la ejecución: {e}")
+        exit(1)
+
 
     print(f"\n[{provider.name}] → {answer}")
