@@ -14,11 +14,13 @@ class ChatGPTProvider(Provider):
     def name(self) -> str: 
         return "chatgpt" 
     
-    def chat(self, messages: List[Dict[str, str]], **kwargs) -> str: 
-        response = self.client.chat.completions.create( 
-            model=self.model, 
-            messages=messages, 
-            temperature=kwargs.get("temperature", 0.0),
-            **kwargs 
-            ) 
-        return response.choices[0].message.content
+    def chat(self, messages: List[Dict[str, str]], **kwargs) -> str:
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=messages,
+                **kwargs
+            )
+            return response.choices[0].message.content or "[ERROR] Respuesta vacía"
+        except Exception as e:
+            return f"[ERROR] Falló la llamada a {self.name}: {e}"

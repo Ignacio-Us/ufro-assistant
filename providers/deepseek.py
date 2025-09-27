@@ -16,9 +16,12 @@ class DeepSeekProvider(Provider):
         return "deepseek"
 
     def chat(self, messages: List[Dict[str, str]], **kwargs) -> str:
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=messages,
-            **kwargs
-        )
-        return response.choices[0].message.content
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=messages,
+                **kwargs
+            )
+            return response.choices[0].message.content or "[ERROR] Respuesta vacía"
+        except Exception as e:
+            return f"[ERROR] Falló la llamada a {self.name}: {e}"
