@@ -1,6 +1,8 @@
 import argparse
 from providers.chatgpt import ChatGPTProvider
 from providers.deepseek import DeepSeekProvider
+from rag.retrieve import Retriever
+from rag.pipeline import rag_pipeline
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -15,14 +17,21 @@ def get_provider(name: str):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--provider", type=str, default="chatgpt", help="Proveedor a usar (chatgpt o deepseek)")
+    parser.add_argument("--provider", type=str, default="chatgpt")
+    parser.add_argument("--k", type=int, default=3)
+    parser.add_argument("--mode", type=str, default="rag")
+    parser.add_argument("query", type=str, help="Pregunta a responder")
     args = parser.parse_args()
 
     provider = get_provider(args.provider)
+    retriever = Retriever("data/index.faiss", "data/processed/chunks.parquet")
 
-    messages = [
-        {"role": "system", "content": "Eres un asistente útil."},
-        {"role": "user", "content": "Explícame qué es RAG en pocas palabras."}
-    ]
+    if args.mode == "rag":
+        answer = rag_pipeline(args.query, provider, retriever, k=args.k)
+    else:
+        answer = provider.chat([
+            {"role": "system", "content": "Eres un asistente útil."},
+            {"role": "user", "content": args.query}
+        ])
 
-    print(f"[{provider.name}] →", provider.chat(messages))
+    print(f"\n[{provider.name}] → {answer}")
