@@ -1,4 +1,3 @@
-import os
 import re
 import pypdf
 from pathlib import Path
