@@ -18,6 +18,7 @@ class ChatGPTProvider(Provider):
         response = self.client.chat.completions.create( 
             model=self.model, 
             messages=messages, 
+            temperature=kwargs.get("temperature", 0.0),
             **kwargs 
             ) 
         return response.choices[0].message.content
