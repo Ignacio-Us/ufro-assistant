@@ -1,80 +1,19 @@
-{
-    "id": "1",
-    "question": "¿Cuántos exámenes extraordinarios se pueden rendir por asignatura en un semestre?",
-},
-{
-    "id": "2",
-    "question": "¿Cuál es el plazo para renunciar a una asignatura sin que aparezca en el historial académico?",
-},
-{
-    "id": "3",
-    "question": "¿Bajo qué causales puede un estudiante ser eliminado de una carrera?",
-},
-{
-    "id": "4",
-    "question": "¿Cuál es el procedimiento para solicitar la suspensión temporal de estudios?",
-},
-{
-    "id": "5",
-    "question": "¿Cómo se calcula el promedio ponderado de notas para la permanencia?",
-},
-{
-    "id": "6",
-    "question": "¿Cuáles son los requisitos para postular a una carrera de pregrado?",
-},
-{
-    "id": "7",
-    "question": "¿Es posible convalidar asignaturas si se ingresa a una nueva carrera en la UFRO?",
-},
-{
-    "id": "8",
-    "question": "¿Qué sucede con el cupo de un estudiante si es sorprendido en actos de fraude o falta a la probidad durante el proceso de admisión?",
-},
-{
-    "id": "9",
-    "question": "¿Cómo se regula el pago de los aranceles y otros cargos financieros?",
-},
-{
-    "id": "10",
-    "question": "¿Se puede iniciar el trámite de titulación si existen deudas financieras con la universidad?",
-},
-{
-    "id": "11",
-    "question": "¿Qué se entiende por “convivencia universitaria” según la normativa?",
-},
-{
-    "id": "12",
-    "question": "¿Cuáles son las sanciones para el incumplimiento del reglamento de convivencia?",
-},
-{
-    "id": "13",
-    "question": "¿Qué pasos se deben seguir para presentar un reclamo o denuncia por una falta a la convivencia?",
-},
-{
-    "id": "14",
-    "question": "¿Cómo se regula la representación estudiantil ante las autoridades de la universidad?",
-},
-{
-    "id": "15",
-    "question": "¿Cuáles son las modalidades para la actividad de titulación en la Facultad de Ingeniería y Ciencias?",
-},
-{
-    "id": "16",
-    "question": "¿Qué reglamenta el Manual Operativo de Actividad de Titulación y a quién se aplica?",
-},
-{
-    "id": "17",
-    "question": "¿Cuál es el proceso para la publicación de un libro o un capítulo de libro por parte de un investigador?",
-},
-{
-    "id": "18",
-    "question": "¿Quién escribió 'Hamlet'?",
-},
-{
-    "id": "19",
-    "question": "¿Qué debe hacer un autor si su propuesta de publicación de revista es objetada?",
-},
-{
-    "id": "20",
-    "question": "¿Qué debe hacer un autor si su propuesta de publicación de revista es objetada?",
-}
+{"id": "1", "question": "¿Cuál es la nota mínima de aprobación para una actividad curricular en Pregrado?", "answer": "La nota mínima de aprobación para cualquier actividad curricular en la Universidad de La Frontera es 4,0 en la escala de notas que va desde 1,0 al 7,0.", "refs": ["RREP:29"]}
+{"id": "2", "question": "¿Cuántos exámenes de repetición puede rendir un estudiante por asignatura en un semestre?", "answer": "Cada estudiante tiene derecho a rendir hasta un examen de repetición por asignatura en el semestre, siempre y cuando su nota de presentación a examen sea igual o superior a 3,0.", "refs": ["RREP:37"]}
+{"id": "3", "question": "¿Cuál es el plazo máximo para que un docente entregue los resultados de una evaluación a los estudiantes?", "answer": "El docente debe dar a conocer los resultados de las evaluaciones a más tardar dentro de las tres semanas siguientes a su aplicación, y siempre antes de la siguiente evaluación.", "refs": ["RREP:32"]}
+{"id": "4", "question": "¿Cuál es la cantidad mínima de calificaciones que debe tener una asignatura semestral?", "answer": "La cantidad mínima de calificaciones en una asignatura semestral es de tres.", "refs": ["RREP:33"]}
+{"id": "5", "question": "¿Qué nota recibe un estudiante que no asiste a una evaluación sin justificación válida?", "answer": "El estudiante será calificado con nota 1,0 si no asiste a una evaluación y no presenta la correspondiente justificación de inasistencia.", "refs": ["RREP:34"]}
+{"id": "6", "question": "¿Qué sucede con las calificaciones de un estudiante al aprobarse su Retiro Temporal?", "answer": "Una vez aceptada la solicitud de Retiro Temporal, se invalida automáticamente toda calificación obtenida durante el periodo lectivo interrumpido en las asignaturas cursadas.", "refs": ["RREP:55"]}
+{"id": "7", "question": "¿Cuál es la diferencia fundamental entre Postergación de Estudios y Retiro Temporal según la inscripción de asignaturas?", "answer": "La Postergación de Estudios solo se podrá solicitar si no se ha inscrito asignaturas en el respectivo periodo, mientras que el Retiro Temporal es la interrupción posterior por situaciones sobrevinientes.", "refs": ["RREP:54", "RREP:55"]}
+{"id": "8", "question": "¿En qué plazo debe responder el Director de Carrera una solicitud de reclamo estudiantil si la materia es de su competencia?", "answer": "El Director(a) de Carrera o de Programa deberá dar respuesta fundada a lo solicitado dentro de un plazo razonable, el cual no deberá exceder el plazo de 5 días hábiles.", "refs": ["R. Convivencia:4"]}
+{"id": "9", "question": "¿Cuándo deben postular los estudiantes de cuarto año o superior que no cursan niveles de inglés para rendir el Examen de Suficiencia?", "answer": "Podrán postular para rendir este examen en las fechas establecidas en el calendario académico, específicamente en la octava y decimosexta semana lectiva del semestre.", "refs": ["RREP:28"]}
+{"id": "10", "question": "¿Cuántas semanas de actividades lectivas y de evaluación tiene una asignatura semestral?", "answer": "Una asignatura semestral se desarrolla en 16 semanas de actividades lectivas y dos semanas de evaluaciones y/o exámenes finales.", "refs": ["RREP:5"]}
+{"id": "11", "question": "¿Cuál es el máximo de horas intra-aula semanales permitido en un nivel del Plan de Estudios?", "answer": "El número máximo de horas intra aula que se podrá incluir en un nivel del Plan de Estudios es de 20 horas semanales.", "refs": ["RREP:5"]}
+{"id": "12", "question": "¿Qué tipo de asignatura es aquella que el estudiante elige según la mención escogida?", "answer": "Es una Asignatura Optativa, que es una actividad curricular de especialidad que el estudiante debe elegir según la mención acordada en el Reglamento de la Carrera.", "refs": ["RREP:5"]}
+{"id": "13", "question": "¿Cuál es la consecuencia para un estudiante que no responde la Evaluación del Desempeño Docente?", "answer": "El estudiante estará bloqueado/a para inscribir asignaturas el primer día del periodo de inscripción del siguiente bimestre.", "refs": ["Calendario Académico 2025"]}
+{"id": "14", "question": "¿Cuándo está programado el inicio del período lectivo del 1er. semestre del año 2025?", "answer": "El inicio del período lectivo del 1er. semestre y 1er. bimestre del año 2025 es el Lunes 17 de marzo.", "refs": ["Calendario Académico 2025"]}
+{"id": "15", "question": "¿Cuál es el periodo para anular la inscripción de una asignatura semestral vía Intranet en el 1er. semestre de 2025?", "answer": "El periodo para anular la inscripción de una asignatura semestral vía Intranet en el 1er. semestre de 2025 va del Lunes 14 de abril a 30 de mayo.", "refs": ["Calendario Académico 2025"]}
+{"id": "16", "question": "¿A quién se le podrá otorgar un Diploma de Título Póstumo?", "answer": "Se podrá otorgar el Diploma de Título Póstumo al estudiante que haya fallecido estando en calidad de estudiante regular o que haya egresado y no haya solicitado su título, cumpliendo las condiciones del Reglamento.", "refs": ["RREP:92"]}
+{"id": "17", "question": "¿Quién tiene la autoridad para resolver situaciones no contempladas en el Reglamento de Régimen de Estudios de Pregrado?", "answer": "Las situaciones no contempladas serán resueltas por el vicerrector(a) de Pregrado, previo informe del decano(a) de la Facultad correspondiente y del Comité Académico de Pregrado.", "refs": ["RREP:94"]}
+{"id": "18", "question": "¿Qué tipo de certificación se requiere para convalidar el requisito de inglés institucional?", "answer": "Se requiere una certificación internacional vigente que acredite el nivel B1 tras la evaluación de las cuatro habilidades del idioma, con una antigüedad no mayor a dos años.", "refs": ["RREP:27"]}
+{"id": "19", "question": "¿Qué ocurre si no se acepta la justificación de inasistencia a una actividad práctica?", "answer": "La no-aceptación de la justificación de inasistencia a actividades prácticas implicará la reprobación de la actividad curricular, por incumplimiento de requisitos, cualquiera sea la nota final.", "refs": ["RREP:52"]}
