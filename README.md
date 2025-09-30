@@ -62,6 +62,19 @@ bash scripts/batch_demo.sh
 ```
 ## Consultas manuales
 
+Antes de realizar las consultas manuales se debe activar el entorno virtual del proyecto:
+
+**Linux**
+```
+source venv/bin/activate
+```
+
+**Windows**
+
+```
+.venv/Scripts/activate
+```
+
 El chatbot se puede ejecutar directamente con parámetros en la línea de comandos:
 
 ```
