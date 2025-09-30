@@ -7,3 +7,5 @@ pandas
 faiss-cpu
 openai
 pyarrow
+matplotlib
+seaborn
