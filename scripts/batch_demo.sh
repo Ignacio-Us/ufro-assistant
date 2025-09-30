@@ -30,6 +30,7 @@ fi
 
 # === INGESTA DE DOCUMENTOS ===
 echo "[INFO] Ejecutando ingesta de documentos..."
+mkdir data/processed
 python -m rag.ingest
 
 # === EMBEDDINGS Y FAISS ===
