@@ -68,11 +68,25 @@ El chatbot se puede ejecutar directamente con parámetros en la línea de comand
 python app.py --provider <PROVEEDOR> --k <N> "Pregunta aquí"
 ```
 
-| Parámetro       | Descripción                                                                | Valores posibles                                                           |
-| --------------- | --------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `--provider`    | Define qué modelo LLM usar.                                                | `chatgpt`, `deepseek`                                                      |
-| `--k`           | Número de fragmentos recuperados desde FAISS para enriquecer la respuesta. | Entero (ej: `3`, `5`). Default: `3`                                        |                               |
-| `query`         | Pregunta del usuario (último argumento entre comillas).                    | Texto libre                                                                |
+**Parametros Disponibles**
+
+1. --provider -> *Define qué modelo LLM usar.*
+
+valores permitidos:
+- chatgpt
+- deepseek
+
+2. --k -> *Número de fragmentos recuperados desde FAISS para enriquecer la respuesta.*
+
+valores permitidos:
+
+- Número Entero (ej: 3, 5). Default: 3
+
+3. "query" -> *Pregunta del usuario (último argumento entre comillas).*
+
+valores permitidos:
+
+- Texto libre Ej. "¿Cuál es la cantidad mínima de calificaciones que debe tener una asignatura semestral?"
 
 ## Evaluación
 
