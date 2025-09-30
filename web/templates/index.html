@@ -1,45 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-    <title>UFRO Assistant - Chat RAG</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    <meta charset="UTF-8">
+    <title>UFRO Assistant - RAG</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
-<body>
-    <h1>UFRO Assistant</h1>
-    <form method="post">
-        <label>Pregunta:</label><br>
-        <textarea name="query" rows="3" cols="60">{{ query }}</textarea><br><br>
+<body class="bg-light">
+    <div class="container py-5">
+        <!-- Título -->
+        <div class="text-center mb-4">
+            <h1 class="display-5 fw-bold" style="color: #241178;">UFRO Assistant (RAG)</h1>
+            <p class="text-muted">Consulta documentos con recuperación aumentada por generación</p>
+        </div>
 
-        <label>Modo:</label>
-        <select name="mode">
-            <option value="rag">RAG (con documentos)</option>
-            <option value="direct">Directo al modelo</option>
-        </select><br><br>
+        <!-- Respuesta -->
+        {% if answer %}
+        <div class="card shadow-sm my-4 border-success">
+            <div class="card-header bg-success text-white fw-bold">
+                Respuesta
+            </div>
+            <div class="card-body">
+                <p class="mb-0">{{ answer }}</p>
+            </div>
+        </div>
+        {% endif %}
 
-        <label>Proveedor:</label>
-        <select name="provider">
-            <option value="chatgpt">ChatGPT</option>
-            <option value="deepseek">DeepSeek</option>
-        </select><br><br>
+        <!-- Formulario -->
+        <div class="card shadow-sm bg-black">
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-3">
+                        <label for="query" class="form-label fw-semibold text-white">Pregunta</label>
+                        <textarea class="form-control" id="query" name="query" rows="4"
+                            placeholder="Escribe tu consulta aquí..." required>{{ query }}</textarea>
+                    </div>
 
-        <button type="submit">Consultar</button>
-    </form>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="provider" class="form-label fw-semibold text-white">Modelo</label>
+                            <select class="form-select" id="provider" name="provider">
+                                {% for p in providers %}
+                                <option value="{{ p }}" {% if p==provider_name %}selected{% endif %}>{{ p }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="k" class="form-label fw-semibold text-white">Precisión (k)</label>
+                            <input type="number" class="form-control" id="k" name="k" value="{{ k }}" min="1" max="20">
+                        </div>
+                    </div>
 
-    {% if answer %}
-    <h2>Respuesta:</h2>
-    <p>{{ answer }}</p>
-    {% if docs %}
-    <h3>Documentos usados:</h3>
-    <ul>
-        {% for d in docs %}
-        <li><b>{{ d.title }} (pág. {{ d.page }})</b>: {{ d.text[:200] }}...</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% endif %}
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">Consultar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
