@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# 💲 Tarifas públicas aproximadas (USD por 1M tokens)
+# Tarifas públicas aproximadas (USD por 1M tokens)
 PRICES = {
     "chatgpt": {"input": 0.50, "output": 1.50},
     "deepseek": {"input": 0.27, "output": 1.10}
@@ -57,15 +57,15 @@ def evaluate(provider, retriever, gold_set, k=3):
         gold_answer = item.get("answer", "")
         gold_refs = item.get("refs", [])
 
-        # 🔹 Medir tiempo de recuperación
+        #  Medir tiempo de recuperación
         t0 = time.perf_counter()
         retrieved = retriever.search(question, top_k=k)
         t1 = time.perf_counter()
 
-        # 🔹 Construir contexto (concatenar chunks recuperados)
+        # Construir contexto (concatenar chunks recuperados)
         context = "\n".join(r["text"] for r in retrieved)
 
-        # 🔹 Medir tiempo del modelo
+        # Medir tiempo del modelo
         messages = [
             {"role": "system", "content": "Eres un asistente útil."},
             {"role": "user", "content": f"Pregunta: {question}\n\nContexto:\n{context}"}
