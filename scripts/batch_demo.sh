@@ -39,7 +39,7 @@ python -m rag.embed
 
 # === EVALUACIÓN ===
 echo "[INFO] Ejecutando evaluación con gold_set..."
-python eval/evaluate.py
+python -m eval.evaluate
 
 # === OPCIONAL: EJEMPLO DE CONSULTA ===
 echo "[INFO] Ejecutando ejemplo de consulta al chatbot..."
