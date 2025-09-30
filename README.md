@@ -101,6 +101,27 @@ valores permitidos:
 
 - Texto libre Ej. "¿Cuál es la cantidad mínima de calificaciones que debe tener una asignatura semestral?"
 
+
+## Web GUI con Flask
+
+Para levantar la interfaz web:
+
+```
+bash scripts/run_web.sh
+```
+
+Este script realiza lo siguiente:
+
+1. Activa el entorno virtual.
+
+2. Instala dependencias necesarias.
+
+3. Verifica que data/index.faiss y data/processed/chunks.parquet existan. En caso de que no ejecuta los modulos necesarios para la creacion de los archivos.
+
+4. Ejecuta una consulta para comprobar el funcionamiento del orquestador RAG
+
+5. Lanza el servidor en http://localhost:5813.
+
 ## Evaluación
 
 El sistema se evalúa con el archivo eval/gold_set.jsonl, que contiene 20 Q&A de referencia.
