@@ -2,6 +2,11 @@
 
 Este proyecto implementa un asistente conversacional RAG (Retrieval-Augmented Generation), que permite responder preguntas usando un conjunto de documentos locales (PDF, TXT) como base de conocimiento.
 
+**ADVERTENCIA:** Para probar el funcionamiento del chatbot por medio de una Web GUI se debe cambiar a la rama *integrate_webgui* con el siguiente comando
+```
+git switch integrate_webgui
+```
+
 El flujo del proyecto incluye:
 
 1. Ingesta y chunking de documentos.
