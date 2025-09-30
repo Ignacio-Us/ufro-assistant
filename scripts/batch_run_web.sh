@@ -54,5 +54,4 @@ echo "[OK] Pipeline RAG completado correctamente."
 
 # === EJECUTAR WEB GUI ===
 echo "[INFO] Levantando servidor Flask..."
-export FLASK_APP=web_app.py
-flask run --host=0.0.0.0 --port=5813
+python -m web.web_app
