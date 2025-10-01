@@ -27,7 +27,7 @@ git clone https://github.com/Ignacio-Us/ufro-assistant.git
 ```
 
 ```
-git switch master
+git switch integrate_webgui
 ```
 
 ```
