@@ -27,11 +27,11 @@ git clone https://github.com/Ignacio-Us/ufro-assistant.git
 ```
 
 ```
-git switch integrate_webgui
+cd ufro-assistant
 ```
 
 ```
-cd ufro-assistant
+git switch integrate_webgui
 ```
 2. Dar permisos al script de ejecución (de ser posible):
 
@@ -129,15 +129,13 @@ El sistema se evalúa con el archivo eval/gold_set.jsonl, que contiene 20 Q&A de
 Para ejecutar la evaluación:
 
 ```
-python eval/evaluate.py
+python -m eval.evaluate
 ```
 
 Esto genera archivos CSV con los resultados de cada proveedor:
 
-`
-eval/results_chatgpt.csv
-eval/results_deepseek.csv
-`
+`eval/results_chatgpt.csv`
+`eval/results_deepseek.csv`
 
 Cada archivo incluye métricas como:
 
